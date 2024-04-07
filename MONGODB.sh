@@ -3,7 +3,7 @@
 ID=$(id -u)
 # PACKAGE=$1
 NAME_REPO="MongoDB Repository"
-BASEURL="https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/"         
+BASEURL="https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/4.2/x86_64/"         
 VERSION="[mongodb-org-4.2]"
 PATH_FILE="/etc/yum.repos.d/mongo.repo"
 CONTENT_FILE="$VERSION
