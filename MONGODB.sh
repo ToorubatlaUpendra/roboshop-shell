@@ -21,7 +21,7 @@ else
 fi
 
 rpm -q "mongodb"
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then
     dnf install mongodb-org -y 
 else 
