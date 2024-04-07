@@ -25,6 +25,6 @@ if [ $? -ne 0]
 then
     dnf install mongodb-org -y 
 else 
-    "echo package is already installed"
+    echo "package is already installed"
 fi
     
