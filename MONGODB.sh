@@ -20,7 +20,7 @@ else
     echo "You are the root user"
 fi
 
-rpm -q "mongodb"
+rpm -q "mongodb-org"
 if [ $? -ne 0 ]
 then
     dnf install mongodb-org -y 
