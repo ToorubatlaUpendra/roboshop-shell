@@ -88,7 +88,7 @@ systemctl start catalogue
 
 VALIDATE $? "start catalouge"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 VALIDATE $? "copying repo file"
 
