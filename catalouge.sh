@@ -63,10 +63,39 @@ cd /app &>>$LOGFILE
 
 VALIDATE $? "change directory"
 
-npm install 
+npm install &>>$LOGFILE
 
 VALIDATE $? "npm install"
 
+cp catalouge.service /etc/systemd/system/catalogue.service &>>$LOGFILE
+
+VALIDATE $? "copying service file"
+
+systemctl daemon-reload
+
+VALIDATE $? "reloading"
+
+systemctl enable catalogue
+
+VALIDATE $? "enabiling"
+
+systemctl start catalogue
+
+VALIDATE $? "start catalouge"
+
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+
+VALIDATE $? "copying repo file"
+
+
+dnf install mongodb-org-shell -y
+
+VALIDATE $? "installing mongo client"
+
+
+mongo --host 54.159.178.138 </app/schema/catalogue.js
+
+VALIDATE $? "moving files to mongo db "
 
 
 
