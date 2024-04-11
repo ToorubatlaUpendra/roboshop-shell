@@ -60,7 +60,7 @@ cd /app &>>$LOGFILE
 
 VALIDATE $? "change directory"
 
-unzip /tmp/catalogue.zip  &>>$LOGFILE
+unzip -o /tmp/catalogue.zip  &>>$LOGFILE
 
 VALIDATE $? "unzip"
 
