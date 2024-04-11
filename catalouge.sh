@@ -43,3 +43,31 @@ else
     echo "USER already exsists"
 fi
 
+mkdir -p /app &>>$LOGFILE
+
+VALIDATE $? "Directory created" 
+
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
+
+VALIDATE $? "catlouge file download" 
+
+cd /app &>>$LOGFILE
+
+VALIDATE $? "change directory"
+
+unzip /tmp/catalogue.zip  &>>$LOGFILE
+
+VALIDATE $? "unzip"
+
+cd /app &>>$LOGFILE
+
+VALIDATE $? "change directory"
+
+npm install 
+
+VALIDATE $? "npm install"
+
+
+
+
+
