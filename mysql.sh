@@ -1,9 +1,9 @@
 #!/bin/bash 
 ID=$(id -u)
-R="\[31m"
-G="\[32m"
-Y="\[33m"
-N="\[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 VALIDATE(){
@@ -33,7 +33,7 @@ VALIDATE $? "downloading remi"
 
 dnf install mysql-community-server -y
 
-VALIDATE $? "downloading remi" 
+VALIDATE $? "installation" 
 
 
 systemctl enable mysqld
