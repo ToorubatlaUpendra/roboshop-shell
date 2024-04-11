@@ -35,7 +35,7 @@ VALIDATE $? "enable nodejs"
 
 dnf install nodejs -y
 
-VALIDATE $? "enable nodejs"
+VALIDATE $? "install nodejs"
 
 id roboshop 
 
@@ -47,26 +47,60 @@ else
     echo "USER already exsists"
 fi
 
-mkdir /app
+mkdir -p /app
+
+VALIDATE $? "directory"
+
 
 curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
 
+VALIDATE $? "download "
+
+
 cd /app 
+
+VALIDATE $? "change directory"
+
 
 unzip -o /tmp/user.zip
 
+VALIDATE $? "unzip"
+
+
 npm install 
+
+VALIDATE $? "npm install"
+
 
 cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
 
+VALIDATE $? "copying service file"
+
+
 systemctl daemon-reload
 
+VALIDATE $? "reload"
+
+
 systemctl enable user 
+VALIDATE $? "enable nodejs"
+
 
 systemctl start user 
 
+VALIDATE $? "starting user service"
+
+
 cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+
+VALIDATE $? "copying repo file"
+
 
 dnf install mongodb-org-shell -y
 
+VALIDATE $? "installing mongod"
+
+
 mongo --host 172.31.93.107 </app/schema/user.js &>> $LOGFILE
+
+VALIDATE $? "seding files "
