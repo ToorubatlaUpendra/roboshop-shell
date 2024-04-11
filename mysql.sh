@@ -28,7 +28,13 @@ dnf module disable mysql -y
 
 cp /root/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo
 
+VALIDATE $? "downloading remi" 
+
+
 dnf install mysql-community-server -y
+
+VALIDATE $? "downloading remi" 
+
 
 systemctl enable mysqld
 
