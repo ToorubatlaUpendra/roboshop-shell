@@ -1,9 +1,9 @@
 #!/bin/bash
 ID=$(id -u)
-R="\[m31"
-Y="\[m32"
-G="\[m33"
-N="\[m0"
+R="\[31m"
+Y="\[32m"
+G="\[33m"
+N="\[0m"
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 echo "script started executing" &>>$LOGFILE
@@ -32,6 +32,11 @@ VALIDATE $? "DISABLE NODEJS"
 dnf module enable nodejs:18 -y &>>$LOGFILE 
 
 VALIDATE $? "Enable NODEJS 18" 
+
+dnf install nodejs -y &>>$LOGFILE
+
+VALIDATE $? "NodeJs installation" 
+
 
 id roboshop 
 
