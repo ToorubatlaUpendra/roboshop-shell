@@ -72,7 +72,7 @@ npm install &>>$LOGFILE
 
 VALIDATE $? "npm install"
 
-cp catalouge.service /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp /C:\Users\tooru\testforgit\roboshop-shell\catalouge.service /etc/systemd/system/catalogue.service &>>$LOGFILE
 
 VALIDATE $? "copying service file"
 
