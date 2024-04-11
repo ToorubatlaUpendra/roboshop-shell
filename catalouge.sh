@@ -1,9 +1,9 @@
 #!/bin/bash
 ID=$(id -u)
-R="\[31m"
-Y="\[32m"
-G="\[33m"
-N="\[0m"
+R="\e[31m"
+Y="\e[32m"
+G="\e[33m"
+N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 echo "script started executing" &>>$LOGFILE
