@@ -38,8 +38,19 @@ VALIDATE $? "installation"
 
 systemctl enable mysqld
 
+VALIDATE $? "enable" 
+
+
 systemctl start mysqld
+
+VALIDATE $? "start" 
+
 
 mysql_secure_installation --set-root-pass RoboShop@1
 
+VALIDATE $? "password" 
+
+
 mysql -uroot -pRoboShop@1
+
+VALIDATE $? "final password " 
